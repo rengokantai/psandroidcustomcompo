@@ -59,9 +59,77 @@ public class VersionView extends TextView{
     //textView.setText(packageInto.versionName);
     setText(packageInto.versionName);
     }catch(PackageManager.NameNotFoundException e){}
+    
+    
+    //add this line
     setBackgroundColor(Color.RED);
   }
 }
 ```
+
+
+###5 Use Custom View in XML
+activity_main.xml
+```
+<com.yd.versionview.VersionView ...
+```
+change back:
+```
+setContentView(R.layout.activity_main);
+```
+
+
+###6 Specify Parent Parameters in XML
+```
+<com.yd.versionview.VersionView ...android:textColor="#010"
+```
+
+
+
+
+##3. Compound Control
+###2 Create a Custom Compound Control
+MainActivity.java
+```
+View.OnClickListener listener = (v)->{
+  switch(v.getId()){
+    case R.id.plus:
+      numInches++;
+      updateControls();
+  }
+}
+mPlusButton.setOnClickListener(listener);
+
+
+
+piivate void updateControls(){
+  int feet = numInches/12;
+  int inches = mNumInches %12;
+  String text = String.format("%d %d\"",feet,inches);
+  mTextView.setText(text);
+  mMinusButton.setEnabled(mNumInches>0);
+}
+
+```
+LengthPicker.java
+```
+
+//05:41
+privatye void init(){
+LayoutInflater inflater = LayoutInflater.from(getContext());
+inflater.inflate(R.layout.length_picker,this);
+setContentView(R.layout.activity_main);
+}
+public class LengthPicker extends LinearLayout{
+public LengthPicker(Context context){
+  super(context);
+}
+public LengthPicker(Context contexst,AttrbuteSet attrs){
+  super(context,attrs);
+}
+}
+```
+
+
 
 
