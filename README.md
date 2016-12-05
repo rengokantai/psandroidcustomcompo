@@ -131,6 +131,30 @@ public LengthPicker(Context contexst,AttrbuteSet attrs){
 ```
 
 
+##8. dispatchDraw
+###1 Overview
+####01:10
+Rotated LinearLayout = sidewaysLayout  
+
+####01:32 how?
+override onMeasure first, then override dispatchDraw
+
+###2 SidewaysLayout
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##9. Fragment vs. Custom View
 ###1 Fragment vs. Custom View
 - Customize
