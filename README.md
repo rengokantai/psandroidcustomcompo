@@ -131,5 +131,20 @@ public LengthPicker(Context contexst,AttrbuteSet attrs){
 ```
 
 
+##9. Fragment vs. Custom View
+###1 Fragment vs. Custom View
+- Customize
+- size (onMeasure)
+- position (onLayout)
+- appearance(onDraw)
 
+
+Fragment:
+- take photo( onActivityResult)
+- Menu button(onCreateOptionsMenu)
+
+Custom View
+- show photo 4:3 (onMeasure)
+- Fanout photos (onLayout)
+- histogram (onDraw)
 
