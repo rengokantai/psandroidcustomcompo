@@ -30,9 +30,38 @@ public class VersionView extends TextView{
   public VersionView(Context context,AttributeASet attrs,int defStyle){super(context,attrs,defStyle);setVersion();}  //for java
   //refactor the code into here , note getContext()
   private void setVersion(){
+  try{
     PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(),0);
     //textView.setText(packageInto.versionName);
     setText(packageInto.versionName);
+    }catch(PackageManager.NameNotFoundException e){}
   }
 }
 ```
+
+
+###4 Use Custom View in Java
+MainActivity.java
+```
+VersionView view = new VersionView(this);
+setContentView(view);
+```
+VersionView.java
+```
+public class VersionView extends TextView{
+  public VersionView(Context context){super(context);setVersion();}  //for java
+  public VersionView(Context context,AttributeSet attrs){super(context,attrs);setVersion();}  //for java
+  public VersionView(Context context,AttributeASet attrs,int defStyle){super(context,attrs,defStyle);setVersion();}  //for java
+  //refactor the code into here , note getContext()
+  private void setVersion(){
+  try{
+    PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(),0);
+    //textView.setText(packageInto.versionName);
+    setText(packageInto.versionName);
+    }catch(PackageManager.NameNotFoundException e){}
+    setBackgroundColor(Color.RED);
+  }
+}
+```
+
+
